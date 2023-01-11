@@ -9,7 +9,7 @@ import java.util.*
  * This class modifies previous [System.out] logging and prints them with information. We need to know which class
  * printed data and at what time at all times.
  *
- * @author Tyluur <contact@kiaira.tech>
+ * @author Tyluur <itstyluur@icloud.com>
  * @since April 9, 2015
  */
 //TODO: include gradle build script
