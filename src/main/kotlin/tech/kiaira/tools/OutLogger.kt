@@ -12,6 +12,7 @@ import java.util.*
  * @author Tyluur <contact@kiaira.tech>
  * @since April 9, 2015
  */
+//TODO: include gradle build script
 class OutLogger(
     /**
      * The pattern to use for date output
@@ -32,26 +33,44 @@ class OutLogger(
      */
     private val dateFormat = SimpleDateFormat(formatPattern)
 
+    /**
+     * Handles the print function for boolean parameters
+     */
     override fun print(message: Boolean) {
         prettyLog(getStackTraceElement(), message.toString())
     }
 
+    /**
+     * Handles the print function for int parameters
+     */
     override fun print(message: Int) {
         prettyLog(getStackTraceElement(), message.toString())
     }
 
+    /**
+     * Handles the print function for long parameters
+     */
     override fun print(message: Long) {
         prettyLog(getStackTraceElement(), message.toString())
     }
 
+    /**
+     * Handles the print function for double parameters
+     */
     override fun print(message: Double) {
         prettyLog(getStackTraceElement(), message.toString())
     }
 
+    /**
+     * Handles the print function for string parameters
+     */
     override fun print(message: String) {
         prettyLog(getStackTraceElement(), message)
     }
 
+    /**
+     * Handles the print function for parameters irrespective of the functinos defined above
+     */
     override fun print(message: Any) {
         prettyLog(getStackTraceElement(), message.toString())
     }
@@ -63,10 +82,12 @@ class OutLogger(
         val element = getCallElement()
         val fileName = element.fileName ?: ""
         val endIndex = fileName.indexOf(".")
-        return "${fileName.substring(
-            0,
-            (if (endIndex == -1) fileName.length else endIndex)
-        )}:${element.lineNumber}#${element.methodName}"
+        return "${
+            fileName.substring(
+                0,
+                (if (endIndex == -1) fileName.length else endIndex)
+            )
+        }:${element.lineNumber}#${element.methodName}"
     }
 
     /**
