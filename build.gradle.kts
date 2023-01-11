@@ -1,8 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    application
-    kotlin("jvm") version "1.4.30"
+    kotlin("jvm") version "1.8.0"
 }
 
 val koinVersion = "2.1.5"
@@ -28,10 +27,6 @@ allprojects {
         maven(url = "https://dl.bintray.com/michaelbull/maven")
     }
 
-}
-
-application {
-    mainClassName = "org.redrune.Bootstrap"
 }
 
 dependencies {
@@ -89,11 +84,5 @@ tasks {
     }
     compileTestKotlin {
         kotlinOptions.jvmTarget = "1.8"
-    }
-}
-
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-        useIR = true
     }
 }
